@@ -1,6 +1,6 @@
 # Idempotent Transaction Ledger
 
-A small FastAPI + SQLAlchemy service for immutable, idempotent account transfers.
+A FastAPI + SQLAlchemy service for immutable, idempotent account transfers.
 
 ## Guarantees
 
