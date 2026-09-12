@@ -4,13 +4,13 @@ import pytest
 from sqlalchemy import delete
 from sqlalchemy.orm import Session
 
-from app.database import Base, SessionLocal, init_db
+from app.database import Base, SessionLocal, engine
 from app.models import Account, LedgerEntry, LedgerTransaction
 
 
 @pytest.fixture(autouse=True)
 def clean_database() -> Iterator[None]:
-    init_db()
+    Base.metadata.create_all(bind=engine)
     with SessionLocal() as session:
         session.query(LedgerEntry).delete()
         session.query(LedgerTransaction).delete()
